@@ -1,0 +1,66 @@
+{
+  "name": "@blacktoolbox/vue-table",
+  "packageName": "btblab-vue-table",
+  "version": "0.0.1",
+  "description": "Table maker based on Vue",
+  "keywords": [
+    "blacktoolbox",
+    "btblab",
+    "btb",
+    "vue",
+    "table"
+  ],
+  "license": "MIT",
+  "author": "Van Noel <vannoel0628@gmail.com>",
+  "homepage": "https://blacktoolboxlaboratory.github.io/vue/#/packages/table",
+  "bugs": {
+    "url": "https://github.com/BlackToolBoxLaboratory/vue-table/issues",
+    "email": "vannoel0628@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackToolBoxLaboratory/vue-table.git"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "scripts": {
+    "cleanModules": "rimraf node_modules",
+    "cleanDir": "rimraf umd lib esm",
+    "build-components": "rollup -c",
+    "build": "npm run lint && npm run build-components",
+    "lint": "eslint --fix --ext .js,.vue module",
+    "prepare": "npm run cleanDir && npm run build",
+    "backup": "gulp backup"
+  },
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.2.3",
+    "@vue/cli-plugin-eslint": "^4.2.3",
+    "@vue/cli-service": "^4.2.3",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.13.1",
+    "rollup": "^2.3.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.5.0",
+    "rollup-plugin-vue": "^5.1.6",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
