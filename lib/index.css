@@ -1,10 +1,9 @@
+.btb-vue-table.table-x-scrollable {
+  overflow-y: hidden;
+}
 .btb-vue-table .table_container {
   width: 100%;
   border-collapse: collapse;
-}
-.btb-vue-table .table_container.container-x-scrollable {
-  overflow-y: hidden;
-  display: block;
 }
 .btb-vue-table .table_container .tr_th {
   background: #d3d3d3;

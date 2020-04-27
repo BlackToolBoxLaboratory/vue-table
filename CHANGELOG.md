@@ -1,7 +1,5 @@
-# Chang Logs
+## v0.1.0
 
-## v1.0.0
+> Apr. 27, 2020
 
-> TBD
-
-- **Major**: formal release.
+- **Minor**: Beta version.
