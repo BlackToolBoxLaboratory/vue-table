@@ -9,10 +9,13 @@ Using with [NPM](https://www.npmjs.com/):
     $ npm install --save @blacktoolbox/vue-table
 
     // using ES6 modules
-    import Table from '@blacktoolbox/vue-table';
+    import BtbTableComponents from '@blacktoolbox/vue-table';
 
     // using CommonJS modules
-    var Table = require('@blacktoolbox/vue-table');
+    var BtbTableComponents = require('@blacktoolbox/vue-table');
+
+    // register to vue
+    app.use(BtbTableComponents);
 
 # Issue
 
