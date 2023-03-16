@@ -1,8 +1,8 @@
 <template>
   <tbody class="list_body" :style="{ ...getStyle(['list_body'], props.styleObj) }">
     <template v-if="props.bodyData.length">
-      <template v-for="entry in props.bodyData" :key="entry[identity]">
-        <tr class="body_tr" :style="{ ...getStyle(['body_tr'], props.styleObj) }">
+      <template v-for="(entry, entryIndex) in props.bodyData" :key="entry[identity]">
+        <tr :class="['body_tr', `tr-${entryIndex}`]" :style="{ ...getStyle(['body_tr', `tr-${entryIndex}`], props.styleObj) }">
           <template v-for="head in props.headData" :key="head.id">
             <td :class="['tr_td', `td-${head.id}`]" :style="{ ...getStyle(['tr_td', `td-${head.id}`], props.styleObj) }"
               @click="clickTd(entry, head)">

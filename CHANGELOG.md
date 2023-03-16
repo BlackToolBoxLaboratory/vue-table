@@ -1,3 +1,9 @@
+## v2.0.1
+
+> Mar. 16, 2023
+
+- **Issue**: Add data order to class.
+
 ## v2.0.0
 
 > Mar. 16, 2023

@@ -13,8 +13,8 @@
             </template>
           </th>
           <template v-if="props.bodyData.length">
-            <template v-for="entry in props.bodyData" :key="entry[identity]">
-              <td :class="['tr_td', `td-${head.id}`]" :style="{ ...getStyle(['tr_td', `td-${head.id}`], props.styleObj) }"
+            <template v-for="(entry, entryIndex) in props.bodyData" :key="entry[identity]">
+              <td :class="['tr_td', `td-${head.id}`, `td-${entryIndex}`]" :style="{ ...getStyle(['tr_td', `td-${head.id}`, `td-${entryIndex}`], props.styleObj) }"
                 @click="clickTd(entry, head)">
                 <template v-if="slotList[`td-${head.id}`]">
                   <slot :name="[`td-${head.id}`]" />

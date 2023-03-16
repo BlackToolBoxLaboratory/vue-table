@@ -1,8 +1,8 @@
 <template>
   <div class="btb-vue-table-info" :style="{ ...getStyle(['btb-vue-table'], props.styleObj) }">
     <template v-if="props.bodyData.length">
-      <template v-for="entry in props.bodyData" :key="entry[identity]">
-        <table class="info_table" :style="{ ...getStyle(['info_table'], props.styleObj) }">
+      <template v-for="(entry, entryIndex) in props.bodyData" :key="entry[identity]">
+        <table :class="['info_table', `table-${entryIndex}`]" :style="{ ...getStyle(['info_table', `table-${entryIndex}`], props.styleObj) }">
           <tbody class="table_body" :style="{ ...getStyle(['table_body'], props.styleObj) }">
             <template v-for="head in props.headData" :key="head.id">
               <tr class="body_tr" :style="{ ...getStyle(['body_tr'], props.styleObj) }">
