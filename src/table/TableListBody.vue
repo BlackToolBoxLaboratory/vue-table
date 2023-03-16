@@ -81,8 +81,6 @@ export default defineComponent({
       emit("clickTd", entry, head);
     };
 
-    console.log('bodyData', props.bodyData)
-
     return {
       getStyle,
 

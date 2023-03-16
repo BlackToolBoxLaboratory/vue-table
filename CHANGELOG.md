@@ -1,3 +1,9 @@
+## v2.0.2
+
+> Mar. 16, 2023
+
+- **Issue**: Remove console.log.
+
 ## v2.0.1
 
 > Mar. 16, 2023
