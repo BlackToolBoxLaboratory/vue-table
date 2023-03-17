@@ -35,7 +35,7 @@
 
 <script lang="ts">
 import type { PropType } from "vue";
-import type { TableHeadObj, TableDataObj } from "../../types/index";
+import type { TableHeadObj, TableDataObj } from "../types";
 
 import { defineComponent, computed } from "vue";
 

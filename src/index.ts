@@ -1,14 +1,10 @@
 import type { App } from "vue";
 
+import { GetStyle, SearchStyleByClassName, TableHeadObj, TableDataObj, TableMode } from './types';
 import { Table, TableList, TableListHead, TableListBody, TableInfo, TableCompare } from "./table/index";
 
-const install = function (app: App) {
-  if (install.installed) {
-    /* istanbul ignore next */
-    return;
-  }
-  install.installed = true;
 
+export default function install(app: App) {
   app.component(Table.name, Table);
   app.component(TableList.name, TableList);
   app.component(TableListHead.name, TableListHead);
@@ -17,21 +13,19 @@ const install = function (app: App) {
   app.component(TableCompare.name, TableCompare);
 };
 
-install.installed = false;
-
-const componentInstaller = {
-  install
-};
-
-export default componentInstaller;
-
 export {
   install,
-  
-  Table, 
-  TableList, 
-  TableListHead, 
-  TableListBody, 
-  TableInfo, 
-  TableCompare
+
+  Table,
+  TableList,
+  TableListHead,
+  TableListBody,
+  TableInfo,
+  TableCompare,
+
+  GetStyle, 
+  SearchStyleByClassName, 
+  TableHeadObj, 
+  TableDataObj,
+  TableMode
 }
