@@ -24,3 +24,14 @@ const componentInstaller = {
 };
 
 export default componentInstaller;
+
+export {
+  install,
+  
+  Table, 
+  TableList, 
+  TableListHead, 
+  TableListBody, 
+  TableInfo, 
+  TableCompare
+}
