@@ -1,6 +1,6 @@
 import type { App } from "vue";
 
-import { GetStyle, SearchStyleByClassName, TableHeadObj, TableDataObj, TableMode } from './types';
+import { TableHeadObj, TableDataObj, TableMode } from './types';
 import { Table, TableList, TableListHead, TableListBody, TableInfo, TableCompare } from "./table/index";
 
 
@@ -14,6 +14,10 @@ export default function install(app: App) {
 };
 
 export {
+  TableHeadObj,
+  TableDataObj,
+  TableMode,
+
   install,
 
   Table,
@@ -22,10 +26,4 @@ export {
   TableListBody,
   TableInfo,
   TableCompare,
-
-  GetStyle, 
-  SearchStyleByClassName, 
-  TableHeadObj, 
-  TableDataObj,
-  TableMode
 }

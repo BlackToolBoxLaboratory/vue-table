@@ -1,14 +1,14 @@
 <template>
   <table class="btb-vue-table-list" :style="{ ...getStyle(['btb-vue-table'], props.styleObj) }">
     <btb-vue-table-list-head :headData="props.headData" :styleObj="props.styleObj" @clickTh="clickTh">
-      <template v-for="name in slotList" #[name]>
-        <slot :name="name" />
+      <template v-for="name in slotList" #[name]="slotProps">
+        <slot :name="name" :="slotProps" />
       </template>
     </btb-vue-table-list-head>
     <btb-vue-table-list-body :headData="props.headData" :bodyData="props.bodyData" :styleObj="props.styleObj"
       :identity="identity" :emptyText="emptyText" @clickTd="clickTd">
-      <template v-for="name in slotList" #[name]>
-        <slot :name="name" />
+      <template v-for="name in slotList" #[name]="slotProps">
+        <slot :name="name" :="slotProps" />
       </template>
     </btb-vue-table-list-body>
   </table>

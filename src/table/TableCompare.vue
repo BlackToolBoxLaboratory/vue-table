@@ -5,8 +5,8 @@
         <tr class="body_tr" :style="{ ...getStyle(['body_tr'], props.styleObj) }">
           <th :class="['tr_th', `th-${head.id}`]" :style="{ ...getStyle(['tr_th', `th-${head.id}`], props.styleObj) }"
             @click="clickTh(head)">
-            <template v-if="slotList[`th-${head.id}`]">
-              <slot :name="[`th-${head.id}`]" />
+            <template v-if="$slots[`th-${head.id}`]">
+              <slot :name="[`th-${head.id}`]" :column="head"/>
             </template>
             <template v-else>
               {{ head.name }}
@@ -16,8 +16,8 @@
             <template v-for="(entry, entryIndex) in props.bodyData" :key="entry[identity]">
               <td :class="['tr_td', `td-${head.id}`, `td-${entryIndex}`]" :style="{ ...getStyle(['tr_td', `td-${head.id}`, `td-${entryIndex}`], props.styleObj) }"
                 @click="clickTd(entry, head)">
-                <template v-if="slotList[`td-${head.id}`]">
-                  <slot :name="[`td-${head.id}`]" />
+                <template v-if="$slots[`td-${head.id}`]">
+                  <slot :name="[`td-${head.id}`]" :column="head" :data="entry"/>
                 </template>
                 <template v-else>
                   {{ entry[head.id] }}
@@ -28,7 +28,7 @@
           <template v-if="!props.bodyData.length && headIndex === 0">
             <td :class="['tr_td', `td-empty`]" :style="{ ...getStyle(['tr_td', 'td-empty'], props.styleObj) }"
               :rowspan="props.headData.length">
-              <template v-if="slotList['td-empty']">
+              <template v-if="$slots['td-empty']">
                 <slot :name="['td-empty']" />
               </template>
               <template v-else>
@@ -86,11 +86,6 @@ export default defineComponent({
   },
   emits: ["clickTh", "clickTd"],
   setup(props, { emit, slots }) {
-
-    const slotList = computed(() => {
-      return Object.keys(slots);
-    });
-
     const clickTh = (head: TableHeadObj) => {
       emit("clickTh", head);
     };
@@ -102,7 +97,6 @@ export default defineComponent({
       getStyle,
 
       props,
-      slotList,
 
       clickTh,
       clickTd

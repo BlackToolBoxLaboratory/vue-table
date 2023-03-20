@@ -2,22 +2,22 @@
   <div class="btb-vue-table" :style="{ ...getStyle(['btb-vue-table'], props.styleObj) }">
     <template v-if="props.mode === 'list'">
       <btb-vue-table-list :="props" @clickTh="clickTh" @clickTd="clickTd">
-        <template v-for="name in slotList" #[name]>
-          <slot :name="name" />
+        <template v-for="name in slotList" #[name]="slotProps">
+          <slot :name="name" :="slotProps"/>
         </template>
       </btb-vue-table-list>
     </template>
     <template v-if="props.mode === 'info'">
       <btb-vue-table-info :="props" @clickTh="clickTh" @clickTd="clickTd">
-        <template v-for="name in slotList" #[name]>
-          <slot :name="name" />
+        <template v-for="name in slotList" #[name]="slotProps">
+          <slot :name="name" :="slotProps"/>
         </template>
       </btb-vue-table-info>
     </template>
     <template v-if="props.mode === 'compare'">
       <btb-vue-table-compare :="props" @clickTh="clickTh" @clickTd="clickTd">
-        <template v-for="name in slotList" #[name]>
-          <slot :name="name" />
+        <template v-for="name in slotList" #[name]="slotProps">
+          <slot :name="name" :="slotProps"/>
         </template>
       </btb-vue-table-compare>
     </template>

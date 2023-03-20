@@ -1,7 +1,7 @@
 {
   "name": "@blacktoolbox/vue-table",
   "packageName": "btblab-vue-table",
-  "version": "2.0.6",
+  "version": "2.1.0",
   "description": "Table maker based on Vue3",
   "keywords": [
     "blacktoolbox",
@@ -36,8 +36,8 @@
     "cleanModules": "rimraf node_modules",
     "build": "rollup -c",
     "lint": "eslint --fix --ext .ts,.vue",
-    "prepare": "npm run build && npm run types",
-    "types": "vue-tsc --declaration --emitDeclarationOnly"
+    "types": "vue-tsc --declaration --emitDeclarationOnly",
+    "prepare": "npm run build && npm run types"
   },
   "dependencies": {
     "vue": "^3.0.0"

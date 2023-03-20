@@ -5,8 +5,8 @@
         <template v-for="head in props.headData" :key="head.id">
           <th :class="['tr_th', `th-${head.id}`]"
             :style="{ ...getStyle(['tr_th', `th-${head.id}`], props.styleObj) }" @click="clickTh(head)">
-            <template v-if="slotList[`th-${head.id}`]">
-              <slot :name="[`th-${head.id}`]" />
+            <template v-if="$slots[`th-${head.id}`]">
+              <slot :name="`th-${head.id}`" :column="head"/>
             </template>
             <template v-else>
               {{ head.name }}
@@ -22,7 +22,7 @@
 import type { PropType } from "vue";
 import type { TableHeadObj } from "../types";
 
-import { defineComponent, computed } from "vue";
+import { defineComponent } from "vue";
 
 import { getStyle } from "../utils/styleMethods";
 
@@ -43,11 +43,7 @@ export default defineComponent({
     },
   },
   emits: ["clickTh"],
-  setup(props, { emit, slots }) {
-    const slotList = computed(() => {
-      return Object.keys(slots);
-    });
-
+  setup(props, { emit }) {
     const clickTh = (head: TableHeadObj) => {
       emit("clickTh", head);
     };
@@ -56,7 +52,6 @@ export default defineComponent({
       getStyle,
 
       props,
-      slotList,
 
       clickTh
     }

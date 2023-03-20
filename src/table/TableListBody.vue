@@ -6,8 +6,8 @@
           <template v-for="head in props.headData" :key="head.id">
             <td :class="['tr_td', `td-${head.id}`]" :style="{ ...getStyle(['tr_td', `td-${head.id}`], props.styleObj) }"
               @click="clickTd(entry, head)">
-              <template v-if="slotList[`td-${head.id}`]">
-                <slot :name="[`td-${head.id}`]" />
+              <template v-if="$slots[`td-${head.id}`]">
+                <slot :name="[`td-${head.id}`]" :column="head" :data="entry"/>
               </template>
               <template v-else>
                 {{ entry[head.id] }}
@@ -21,7 +21,7 @@
       <tr class="body_tr" :style="{ ...getStyle(['body_tr'], props.styleObj) }">
         <td :class="['tr_td', `td-empty`]" :style="{ ...getStyle(['tr_td', 'td-empty'], props.styleObj) }"
           :colspan="props.headData.length">
-          <template v-if="slotList['td-empty']">
+          <template v-if="$slots['td-empty']">
             <slot :name="['td-empty']" />
           </template>
           <template v-else>
@@ -73,10 +73,6 @@ export default defineComponent({
   },
   emits: ["clickTd"],
   setup(props, { emit, slots }) {
-    const slotList = computed(() => {
-      return Object.keys(slots);
-    });
-
     const clickTd = (entry: TableDataObj, head: TableHeadObj) => {
       emit("clickTd", entry, head);
     };
@@ -85,7 +81,6 @@ export default defineComponent({
       getStyle,
 
       props,
-      slotList,
 
       clickTd
     }
